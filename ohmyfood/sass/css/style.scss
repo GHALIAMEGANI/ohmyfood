@@ -1,0 +1,27 @@
+//_______________MES POLICES_______________//
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap'); 
+
+//_______________DECLARATION DES VARIABLES_______________//
+@import '../sass/patern7-1/utils/variables';
+
+//_______________DECLARATION DES MIXINS_______________//
+@import '../sass/patern7-1/utils/mixins';
+
+//_______________MON LOADER_______________//
+@import '../sass/patern7-1/components/loader';
+
+//_______________MON FOOTER_______________//
+@import '../sass/patern7-1/layouts/footer';
+
+//_______________STYLISATION DE MA PAGE D'ACCUEIL_______________//
+@import '../sass/patern7-1/pages/accueil';
+
+//_______________STYLISATION DES PAGES MENUS DES RESTAURANTS_______________//
+@import '../sass/patern7-1/pages/restaurants';
+
+//_______________MA VERSION DESKTOP_______________//
+@import '../sass/patern7-1/themes/responsive'
+
+
+

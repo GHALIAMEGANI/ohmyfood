@@ -1,0 +1,177 @@
+//_______________DEBUT DE LA STYLISATION DE LA PAGE DES RESTAURANTS_______________//
+.arrow {
+  font-size: 1.1em;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+.header__pic img {
+  @include illustration(); /*Intégration de l'image du restaurant */
+  width: 100%;
+}
+#selection {
+  background: white;
+  width: 100%;
+  @include centrage1();
+}
+.selection {
+  margin-top: -30px; //j'empiete dans l'espace de la photo
+  padding: 0 20px; //je descends le titre de 15px et je fais en sorte que la taille du menu arrive jusqu'au bouton
+  width: 100%; //je determine la taille que prendra la partie menu dans ma page
+  max-width: 1230px;
+  background-color: $gris; //couleur de fond du menu
+  border-radius: 35px 35px 0 0; //rognement des cotes hauts
+  position: relative; //je positionne le menus gris dessus la photo de restaurant
+  z-index: 1;
+
+  &__headline {
+    //mise en place du titre et du coeur
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__title {
+    font-family: "Shrikhand";
+  } //affectation d'une police au nom du resto
+
+  &__layout {
+    //disposition de la page menu en 3 parties avec 40px d'espace entre les 3 parties
+    display: grid;
+    grid-gap: 40px;
+
+    &--bloc {
+      //dispo et espace entre les rectangles des entrees plats desserts
+      display: grid;
+      grid-gap: 15px;
+    }
+    h3 {
+      // stylisation du titre (nom du restaurant)
+
+      position: relative;
+      font-weight: 400;
+      text-transform: uppercase;
+      @include soulignement();
+    }
+    &__contain {
+      //mise en place des rectancles avec les noms des plats
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      @include centrage1();
+      width: 100%;
+      height: 70px;
+      border-radius: 15px;
+      background-color: white;
+      @include ombre();
+
+      &:hover .check__box {
+        @include centrage1();
+        animation: glissade 0.7s ease;
+        transform-origin: right; //va faire demarrer le debut de l'animation à droite
+      }
+      &:hover .selection__case__price {
+        padding-right: 100px;
+        transition: 0.7s ease; //rognement du prix au passage de la souris
+      }
+      .check__box {
+        display: none; //invisibilise le check
+        position: absolute;
+        background: $vert;
+        border-radius: 0 15px 15px 0;
+        right: 0px; //depart depuis le bord extreme droite
+        padding: 0 13px; //taille du check box
+        height: 100%;
+        i {
+          //cercle englobant le cercle
+          font-size: 25px;
+          color: white;
+          transform: rotate(180deg);
+          animation: rotation 0.5s both;
+        }
+      }
+    }
+    .dish-and-price {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &__case {
+    &__dish {
+      margin-left: 20px;
+      white-space: nowrap;
+      overflow: hidden;
+
+      & p {
+        margin: 0;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      &--name {
+        font-weight: bold;
+      }
+    }
+    &__price {
+      padding-right: 20px;
+      font-weight: bold;
+      padding-left: 7px;
+    }
+  }
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes glissade {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.lag {
+  animation: opacity 1s both;
+}
+#dish-1 {
+  animation-delay: 0.1s;
+}
+#dish-2 {
+  animation-delay: 0.2s;
+}
+#dish-3 {
+  animation-delay: 0.3s;
+}
+#dish-4 {
+  animation-delay: 0.4s;
+}
+#dish-5 {
+  animation-delay: 0.5s;
+}
+#dish-6 {
+  animation-delay: 0.6s;
+}
+#dish-7 {
+  animation-delay: 0.7s;
+}
+#dish-8 {
+  animation-delay: 0.8s;
+}
+#dish-9 {
+  animation-delay: 0.9s;
+}
+/*FIN DU MENU*/

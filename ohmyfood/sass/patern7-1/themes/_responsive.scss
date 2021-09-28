@@ -1,0 +1,45 @@
+//_______________VERSION DESKTOP_______________//
+@media screen and (min-width: 1100px) {
+  .headline {
+    background-color: $gris;
+    &__mid {
+      width: 450px;
+    } /* j'ai enlevé le centrage en agrandissant la div*/
+    /*
+    .headline__mid--button {
+      @include boutonD();
+    }*/
+  }
+  .fonctionnement {
+    &__menu {
+      /*disposition du menu fonctionnement sur 1 rangée*/
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+    }
+  }
+
+  .numero {
+    /*changement de design et d'emplacement des boutons dans la version desktop*/
+    font-weight: bolder;
+    position: relative;
+    left: 45vh;
+  }
+
+  .suggestion {
+    display: grid;
+    gap: 15px; /*Espace entre les 4 cartes*/
+    width: 100%;
+    display: flex; /*Alignement sur une rangée des ' cartes restaurants*/
+    justify-content: space-between;
+  }
+  //responsive des pages restaurant
+  .selection {
+    margin-top: -60px;
+  }
+  .selection__layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+  }
+}

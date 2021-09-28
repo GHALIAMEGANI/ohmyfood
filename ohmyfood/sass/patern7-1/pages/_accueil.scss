@@ -1,0 +1,160 @@
+//_______________DEBUT DES DECLARATION DES PARAMETRES SUR L'INTEGRALITE DES PAGES_______________//
+body {
+  font-family: "Roboto"; /*Police déclarée sur l'intégralité de la page*/
+  margin: 0; /*Je choisis de ne pas laisser de marge*/
+  width: 100%;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+//_______________DEBUT DE LA STYLISATION DE LA PAGE D'ACCUEIL_______________//
+//La page d'accueil contiendra l'entete qui englobera 1-Le logo, 2-L'emplacemement, 3-Les 2 slogans et 4-Le bouton
+/*1-Le Logo*/
+.logo {
+  border-bottom: rgb(216, 214, 214) solid; /*integration du logo avec la bordure ombree*/
+  padding-bottom: 10px; /*epaisseur de la bordure*/
+  .logo__pic {
+    @include centrage1();
+  }
+  .logo__pic img {
+    width: 165px;
+    height: 35px;
+  }
+}
+/*2-L'emplacement*/
+.location {
+  font-size: 0.95rem;
+  width: 100%;
+  height: 50px;
+  background-color: #e7e6e6;
+  @include centrage1();
+}
+/*3- Les Slogans*/
+.headline {
+  background-color: $gris;
+  &__mid {
+    width: 250px;
+    height: 290px;
+    @include centrage2() padding-top: 20px;
+    h2 {
+      @include centrage3();
+    }
+    p {
+      @include centrage3() font-size: 0.8rem;
+      font-weight: 400;
+    }
+    /*4- Le bouton*/
+    &--button {
+      @include bouton;
+      @include centrage2();
+    }
+  }
+}
+
+//__________SECTION FONCTIONNEMENT__________//
+.fonctionnement {
+  h1 {
+    @include h1();
+    margin-left: 25px;
+    margin-bottom: 30px;
+  }
+  &__menu {
+    padding-left: 25px;
+    margin-right: 20px;
+    font-weight: bolder;
+    &--option {
+      padding: 1.5rem;
+      margin: 1rem 0 1rem 0.75rem;
+      border-radius: 1.25rem;
+      @include ombre();
+      background-color: #f2f2f2;
+      display: flex;
+      column-gap: 30px;
+      &:hover {
+        /*Devient violet au survol*/
+        background-color: #f0e8fc;
+        @include ombre();
+        cursor: pointer;
+        .fas {
+          color: $violet; /*La couleur passe au violet off au passage de la souris */
+        }
+      }
+      .fas {
+        /*positionnement des icones du menu Fonctionnement*/
+        color: grey;
+        margin-left: -5px;
+      }
+    }
+  }
+}
+/*créer et placer les petits boutons 1.2.3.*/
+.numero {
+  background-color: $violet;
+  @include centrage1() @include btn();
+}
+//__________SECTION RESTAURANTS__________//
+#restaurant {
+  /*Positionnement des Cadres des 4 restaurants*/
+  margin-top: 80px;
+  background-color: $gris;
+  padding: 20px 0 80px 30px;
+}
+.restaurant__title {
+  /*Positionnement du titre "restaurant"*/
+  h1 {
+    @include h1();
+    padding-bottom: 30px;
+  }
+}
+.carte img {
+  @include cartefoto();
+} /*Placement du 1er restaurant -La palette du gout */
+h6 {
+  @include nouveau();
+}
+.cache {
+  @include new();
+}
+.carte {
+  @include carte();
+  margin-bottom: 35px;
+  &__legende {
+    position: relative;
+    bottom: 38%;
+    display: grid; /*placement des coeurs*/
+    grid-template-columns: 3fr 1fr;
+    &--nom {
+      /*Nom des restaurants*/
+      margin: 10px 0 0 15px;
+      color: black;
+    }
+    &--lieu {
+      /*Quartier des restaurants*/
+      margin-top: 5px;
+      font-size: 14px;
+    }
+    &--icone {
+      @include centrage1(); /*centrage du coeur dans sa div*/
+      .heart {
+        @include coeurV();
+        &:hover {
+          @include coeurVhover();
+          .heart-color {
+            /*Au passage de la souris le coeur vide se remplit*/
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+      }
+      .heart-color {
+        @include coeurG();
+      }
+    }
+  }
+}
+
+/*FIN DE LA PAGE D'ACCUEIL*/

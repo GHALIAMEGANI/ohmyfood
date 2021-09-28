@@ -1,0 +1,163 @@
+//_______________DEBUT DE LA DECLARATION DE MES MIXINS_______________//
+//CENTRAGE FLEXBOX
+@mixin centrage1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+//CENTRAGE D'UN BLOC
+@mixin centrage2{
+   margin-left: auto;
+   margin-right: auto;
+    }
+//CENTRAGE D'UN TEXTE 
+@mixin centrage3{
+    text-align: center;
+    }
+//BOUTON BICOLORE ROSE ET VIOLET D'EXPLORATION ET DE COMMANDE
+@mixin bouton{
+    background-image: linear-gradient(to top, #9356dc, #ff79da);
+    width:220px;
+    height: 50px;
+    box-shadow: 3px 4px 3px 1px rgba(196, 196, 196, 0.541);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
+    font-weight: bolder;
+    font-size: 1.1rem;
+    margin-top: 45px ;
+    margin-bottom: 55px
+    }
+//BOUTON BICOLORE VERT ET GRIS POUR LE BOUTON D'EXPLORATION DE LA VERSION DESKTOP
+@mixin boutonD{
+    background-image: linear-gradient(to top, #99E2D0, rgb(200, 202, 200));
+    width:220px;
+    height: 50px;
+    box-shadow: 3px 4px 3px 1px rgba(196, 196, 196, 0.541);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:black;
+    font-weight: bolder;
+    font-size: 1.3rem;
+    margin-top: 45px ;
+    margin-bottom: 55px
+    }
+//PETIT BOUTON NUMERO 1.2.3.//
+@mixin btn{
+    border-radius: 50%;
+    margin-left: -30px;
+    width: 25px;
+    height:25px;
+    color: whitesmoke;
+    font-size: 0.8rem;
+    }
+//DECLARTION DES SPECIFICITES DU H1    
+@mixin h1{
+    font-size: 1.4rem;
+    margin-top: 40px;
+    }
+//EMPLACEMENT DES PHOTOS DES RESTAURANTS DANS LA PAGE D'ACCUEIL    
+@mixin carte{
+    box-shadow: 3px 4px 3px 1px rgba(196, 196, 196, 0.541);
+    border-radius: 25px;
+    width: 100%;    
+    height: 255px;    
+    }
+//EMPLACEMENT DES PHOTOS DES RESTAURANTS DANS LA PAGE D'ACCUEIL    
+@mixin carteD{/*Version desktop*/
+    box-shadow: 3px 4px 3px 1px $vert;
+    border-radius: 25px;
+    width: 100%;    
+    height: 255px;    
+    }
+//DIMENSION DES PHOTOS DES RESTOS    
+@mixin cartefoto{//dimension des photos des restos 
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0 ;    
+    }
+//DECLARATION DE L'ENCART "NOUVEAU"
+@mixin nouveau{
+    background-color:$vert;
+    color: green;
+    font-size: 0.9em;
+    width: 80px;
+    height: 30px;
+    @include centrage1();
+    position: relative;    
+    left: 75%;
+    bottom: 200px;
+    }
+//SOUSTRACTION DE L'ENCART "NOUVEAU"
+@mixin new{ 
+    position: relative;
+    z-index: -1;    
+    }
+//EFFET OMBRE DES CASES     
+@mixin ombre{
+    box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    }
+//MISE EN PLACE DES PHOTOS DES RESTAURANTS //
+@mixin grid{
+    margin-left: -5px;
+    padding-top: 30px;
+    display: grid;    
+    display: grid; /*placement à droite des coeurs*/
+    grid-template-columns: 1fr;
+    column-gap: 30px;    
+    }
+//AMELIORATION ET DISPOSITION DES PHOTOS DES RESTAURANTS 
+@mixin illustration{
+    width: 100%;
+    height: 250px; 
+    object-fit: cover;
+    }
+//SOULIGNEMENT DES ENTREES PLATS DESSEERTS
+@mixin soulignement{
+    border-bottom: solid $vert 4px;
+    margin-left: 20px;
+    padding-bottom: 1%;
+    width: 10%;
+    }
+//SOULIGNEMENT DES SOULIGNEMENT DE LA VERSION DESKTOP    
+@mixin soulignementD{
+    border-bottom: solid $rose 4px;
+    margin-left: 20px;
+    padding-bottom: 1%;
+    width: 10%;
+    }
+//CREATION DU COEUR QUI SE REMPLIT GRADUELLEMENT DE LA COULEUR     
+@mixin coeurG{
+    right: 0px;
+    position: absolute;
+    z-index: -1; /*Icone coeur plein au second plan*/
+    background: linear-gradient(0deg,$rose 0%, #d96edf 35%,#b261e4 70%,$violet 100%); 
+    /*Un dégradé qui démarre du bas et va vers le haut qui commence de la couleur secondaire à 0% et fini à la couleur primaire à 100% avec 2 étapes à 35 et 70%*/
+    background-clip: text;/*Permet au background d'être appliqué sur le coeur qui ne prend que la propriété color normalement*/
+    -webkit-background-clip: text; /*pas supporté par chrome donc obligé de passer par webkit*/
+    color: transparent;
+    opacity: 0;
+    transform: scale(0);
+    transition: 300ms ease-in-out;/*L'animation commence lentement, accèlere puis ralentit à nouveau avant la fin*/
+    }
+//COEUR SANS COULEUR QUI VA DISPARATAITRE ET LAISSER LA PLACE AU COEUR GRADIENT        
+@mixin coeurV{
+    font-size: 25px; /*Taille du coeur*/
+    position: relative;
+    z-index: 1; /*Icone coeur vide au 1er plan*/
+    color:black;/*Couleur du contour du coeur*/
+    cursor: pointer;
+    }
+//DECLARTION DU COEUR QUI VA APPARAITRE AU SURVOL (APRES LA DISPARITION DU COEUR VIDE     
+@mixin coeurVhover{          
+    background: linear-gradient(0deg,$rose 0%, #d96edf 35%,#b261e4 70%,$violet 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    }
+/*FIN DE LA DECLARATION DE MES MIXINS*/
